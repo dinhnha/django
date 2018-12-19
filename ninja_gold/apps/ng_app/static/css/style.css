@@ -1,0 +1,25 @@
+h1 {
+    color: blue;
+}
+
+
+.container {
+    margin: auto;
+    width: 1000px; 
+    background-color: lightgray; 
+    text-align: center;
+}
+.place {
+    display: inline-block; 
+    width: 220px; 
+    background-color: lightblue; 
+    margin: 5px;
+    border: 1px solid black; 
+    text-align: center;
+}
+#green{
+    background-color: lightgreen;
+}
+#red{
+    background-color: red;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Survey Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <div class="container">
+            <div class="row">
+            <div class="col-sm-6">
+                <h1>Add a new word</h1>
+                <form action="/process/" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="word">Word:</label>
+                        <input type="text" name='word' class="form-control" id="word">
+                    </div>
+                    <div class="form-group">
+                        <label for = 'color'>Color:</label>
+                        <input type="radio" name="color" value="red" checked> Red
+                        <input type="radio" name="color" value="green"> Green
+                        <input type="radio" name="color" value="blue"> Blue
+                    </div>
+                    <div class="form-group">
+                        <input type='checkbox' name='big_font' value='uppercase'> Show in BIG fonts!</input>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-default" value="submit">Add to Session</button>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <h1> Word Display</h1>
+                <form action="/clear/" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-default" value="submit">Clear Session</button>
+                </form>
+                {%for words in request.session.words%}
+                <p><span style="color:{{words.color}}; text-transform:{{words.size}};">{{words.word}}</span> </p>
+                {% endfor %}
+                
+            </div>
+        
+        </div>
+    </div>
+
+</body>
+</html>

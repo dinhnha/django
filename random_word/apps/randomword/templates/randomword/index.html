@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Time Display</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>Random String Generator</h1>
+  <p>{{randstr}}</p>
+  <p>Attempts:{{cnt}}</p>
+
+  <form action="/random_word/reset" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-default">Reset</button>
+  </form>
+</div>
+
+</body>
+</html>

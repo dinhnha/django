@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Ninja Gold Mining Game</title>
+        <meta charset="utf-8">
+        <title>Index</title>
+        {% load static %}
+        <!-- The line above tells Django to be ready to listen for static files -->
+        <link rel="stylesheet" href="{% static 'ng_app/css/style.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+         
+     </head>
+    <body>
+        <div class="container">
+            <div class="row>"
+            <p>Now, it's time for Ninjas to go find some gold. 
+            You choose a place to go and earn the a specified amount of money. Let's go, Ninjas!
+            </p>
+            <h2>Your Gold Balance:</h2>
+            </div>
+            <div class="row">
+                <div class='col-md-3'>
+                    <h1>Farm</h1>
+                    <p>(earns 10 - 20) </p>
+                    <form action='/process_money/' method='POST'>
+                        {% csrf_token %}
+                        <input type='hidden' name ='building' value = 'farm' />
+                        <input type='submit' name="submit" value='Find Gold!'/>
+                    </form>
+                </div>
+                <div class="col-md-3">
+                    <h1>Cave</h1>
+                    <p>(earns 5 - 10)</p>
+                    <form action='/process_money/' method='POST'>
+                        {% csrf_token %}
+                        <input type='hidden' name ='building' value = 'cave' />
+                        <input type='submit' name="submit" value='Find Gold!'/>
+                    </form>
+                </div>
+                <div class="col-md-3">
+                    <h1>House</h1>
+                    <p>(earns 2 - 5)</p>
+                    <form action='/process_money/' method='POST'>
+                        {% csrf_token %}
+                        <input type='hidden' name ='building' value = 'house' />
+                        <input type='submit' name="submit" value='Find Gold!'/>
+                    </form>
+                </div>
+                <div class="col-md-3">
+                    <h1>Casino</h1>
+                    <p>(earns/loses (-50) - 50)</p>
+                    <form action='/process_money/' method='POST'>
+                        {% csrf_token %}
+                        <input type='hidden' name ='building' value = 'casino' />
+                        <input type='submit' name="submit" value='Find Gold!'/>
+                    </form>
+                </div>
+            </div>  
+            <div class = "log">
+                
+            </div>
+
+        </div>
+    </body>
+</html>
+
